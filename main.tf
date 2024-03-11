@@ -31,7 +31,7 @@ resource "random_password" "admin-pw" {
 }
 
 resource "azurerm_mssql_server" "example" {
-  name                         = "mysqlserver-${lower(random_password.server-name.result)}"
+  name                         = "myazuresqlserver-${lower(random_password.server-name.result)}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
   version                      = "12.0"
@@ -50,11 +50,18 @@ resource "azurerm_mssql_database" "example" {
   sku_name       = "Basic"
 
 }
+
+resource "azurerm_mssql_firewall_rule" "example" {
+  name             = "AllowAppService"
+  server_id        = azurerm_mssql_server.example.id
+  start_ip_address = "0.0.0.0"
+  end_ip_address   = "0.0.0.0"
+}
 resource "azurerm_service_plan" "example" {
   name                = "asp"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  sku_name            = "S1"
+  sku_name            = "S3"
   os_type             = "Windows"
 
 }
@@ -70,4 +77,11 @@ resource "azurerm_windows_web_app" "example" {
 
 output "SQLAdminPWD" {
     value = nonsensitive(random_password.admin-pw.result)
+}
+
+output "SQLUserName" {
+    value = "SuperAdmin"
+}
+output "AppUrl" {
+    value = azurerm_windows_web_app.example.default_hostname
 }
