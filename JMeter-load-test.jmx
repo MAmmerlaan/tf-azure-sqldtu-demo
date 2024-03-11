@@ -35,8 +35,9 @@
         </CookieManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - list main page">
-          <stringProp name="HTTPSampler.domain">dtu-demo.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">YOURAPPNAMEHERE.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -151,7 +152,7 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - insert">
-          <stringProp name="HTTPSampler.domain">dtu-demo.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">YOURAPPNAMEHERE.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port">443</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">Todos/Create</stringProp>
@@ -280,7 +281,7 @@
         </ConstantTimer>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - elk item lezen">
-          <stringProp name="HTTPSampler.domain">dtu-demo.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">YOURAPPNAMEHERE.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port">443</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/</stringProp>
